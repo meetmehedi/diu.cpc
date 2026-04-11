@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const encryptedBuffer = publicKey.encrypt(payloadStr, 'RSA-OAEP', {
                 md: forge.md.sha256.create(),
                 mgf1: {
-                    md: forge.md.sha1.create()
+                    md: forge.md.sha256.create()
                 }
             });
             const encryptedPayload = forge.util.encode64(encryptedBuffer);
@@ -198,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${member.Member_Name}</td>
                 <td>${member.Member_ID}</td>
                 <td>${member.Batch}</td>
+                <td>${member.Department}</td>
                 <td class="action-btns">
                     ${actionButtons}
                 </td>
