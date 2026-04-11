@@ -32,9 +32,6 @@ This project serves as a secure search portal and admin dashboard for the DIU Co
 
 For extreme security, we do not allow changing passwords via the Web UI (which is often a vulnerability point). Instead, it must be changed by the server owner locally. 
 
-The default credentials are:
-- **Username:** `admin`
-- **Password:** `SecurePass123!`
 
 **To generate a new highly secure password hash:**
 1. Open a terminal in the project directory.

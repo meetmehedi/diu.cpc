@@ -24,7 +24,17 @@ const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', {
 console.log("RSA Key Pair generated successfully.");
 
 // Security Middlewares
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
+      imgSrc: ["'self'", "data:"]
+    }
+  }
+}));
 app.use(cors());
 app.use(express.json()); // Added for parsing JSON bodies
 app.use(express.static('public')); 

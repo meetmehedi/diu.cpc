@@ -95,7 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 loginErrorMsg.textContent = data.error || 'Login failed';
             }
         } catch (err) {
-            loginErrorMsg.textContent = 'Network error.';
+            console.error('Login error:', err);
+            loginErrorMsg.textContent = 'Error: ' + (err.message || 'Network error.');
         } finally {
             loginBtnText.style.display = 'block';
             loginSpinner.style.display = 'none';
