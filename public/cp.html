@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIU CPC | Competitive Programming</title>
+    <meta name="description" content="Enter the Arena: DIU CPC Competitive Programming Wing.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .cp-hero {
+            min-height: 80vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 120px 8% 50px; position: relative; z-index: 1;
+        }
+        .cp-title {
+            font-family: var(--font-cyber); font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900; line-height: 1.1; margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #38BDF8);
+            -webkit-background-clip: text; color: transparent;
+        }
+        .cp-hero p { max-width: 600px; margin: 0 auto 30px; color: var(--text-muted); font-size: 1.1rem; }
+        
+        .section-container { max-width: 1200px; margin: 0 auto; padding: 60px 8%; position: relative; z-index: 1; }
+        
+        .feature-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem; margin-top: 3rem;
+        }
+        .feature-card {
+            background: rgba(10, 25, 47, 0.4);
+            border: 1px solid rgba(0, 242, 255, 0.2); border-radius: 20px;
+            padding: 2.5rem; transition: 0.4s; backdrop-filter: blur(10px);
+        }
+        .feature-card:hover {
+            transform: translateY(-10px); border-color: var(--cyan);
+            box-shadow: 0 15px 30px rgba(0,242,255,0.2);
+        }
+        .feature-icon { font-size: 2.5rem; color: var(--cyan); margin-bottom: 1.5rem; }
+        .feature-title { font-family: var(--font-cyber); font-size: 1.3rem; margin-bottom: 1rem; color: #fff; }
+        
+        .leaderboard-wrap {
+            background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px; padding: 2rem; margin-top: 4rem; backdrop-filter: blur(10px);
+        }
+        .platform-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 3rem; }
+        .platform-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 12px 25px; border-radius: 50px; font-family: var(--font-cyber);
+            font-size: 0.9rem; letter-spacing: 1px; color: #fff; text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.2); transition: 0.3s;
+        }
+        .platform-btn:hover { border-color: var(--gold); color: var(--gold); box-shadow: 0 0 15px rgba(245,158,11,0.2); }
+    </style>
+</head>
+<body>
+    <div class="background-container"></div>
+    <div class="cyber-grid"></div>
+
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="logo.png" alt="CPC Logo" class="nav-logo">
+            <span class="brand-text">DIU CPC</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="legacy.html">Legacy</a></li>
+            <li><a href="cp.html" style="color:var(--cyan);">CP Section</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="registration.html" class="nav-btn" style="color:#00f2ff;border-color:rgba(0,242,255,0.5);">Join CPC</a>
+        </div>
+    </nav>
+
+    <div class="cp-hero">
+        <div>
+            <div class="timeline-tag" style="border-radius:50px; padding:6px 20px; border:1px solid rgba(0,242,255,0.3); color:var(--cyan); font-family:var(--font-cyber); font-size:0.7rem; letter-spacing:3px; display:inline-block; margin-bottom:1rem;">THE ARENA</div>
+            <h1 class="cp-title">COMPETITIVE<br>PROGRAMMING</h1>
+            <p>Master algorithms, dominate data structures, and conquer the global leaderboards. The CP Wing of DIU CPC is where legends are forged under pressure.</p>
+            <div class="platform-links">
+                <a href="#" class="platform-btn"><i class="fa-solid fa-code"></i> Codeforces</a>
+                <a href="#" class="platform-btn"><i class="fa-solid fa-terminal"></i> LeetCode</a>
+                <a href="#" class="platform-btn"><i class="fa-solid fa-laptop-code"></i> Vjudge</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container">
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-bolt feature-icon"></i>
+                <h3 class="feature-title">Weekly Contests</h3>
+                <p style="color:var(--text-muted);font-size:0.95rem;">Consistent, intense short-form contests designed to keep your mind sharp and speed optimized.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-brain feature-icon" style="color:var(--purple);"></i>
+                <h3 class="feature-title">Algorithm Camps</h3>
+                <p style="color:var(--text-muted);font-size:0.95rem;">Deep dive into dynamic programming, graph theory, and advanced data structures with expert mentors.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-trophy feature-icon" style="color:var(--gold);"></i>
+                <h3 class="feature-title">Global Mentorship</h3>
+                <p style="color:var(--text-muted);font-size:0.95rem;">Train for ICPC, NASA Space Apps, and absolute dominance on an international scale.</p>
+            </div>
+        </div>
+
+        <div class="leaderboard-wrap">
+            <h2 style="font-family:var(--font-cyber); font-size:1.5rem; text-align:center; margin-bottom:2rem; color:#fff;">GLOBAL <span style="color:var(--cyan);">RANKINGS</span></h2>
+            <p style="text-align:center; color:var(--text-muted);">The real-time leaderboard is currently synchronizing with the central mainframe.</p>
+            <br>
+            <div style="display:flex; justify-content:center;">
+                <a href="dashboard.html" class="cyber-btn primary">Check Your Stats <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

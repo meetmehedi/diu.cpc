@@ -4,78 +4,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIU CPC Member Portal</title>
+    <title>DIU CPC | Official Club Portal</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
+    <!-- Futuristic Elements -->
     <div class="background-container"></div>
+    <div class="cyber-grid"></div>
+    <div class="scanline"></div>
+    <div class="particles" id="particles"></div>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
 
-    <main class="glass-container">
-        <div class="header">
-            <img src="logo.png" alt="DIU CPC Logo" class="logo">
-            <h1>Membership ID Checker</h1>
-            <p>Access your DIU Computer Programming Club membership details.</p>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-brand">
+            <img src="logo.png" alt="CPC Logo" class="nav-logo">
+            <span class="brand-text">DIU CPC</span>
+        </a>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="legacy.html">Legacy</a></li>
+            <li><a href="viva.html" style="color:var(--gold);text-shadow:0 0 10px rgba(245,158,11,0.5);">EC Viva</a></li>
+            <li><a href="cp.html">CP Section</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="#achievements">Hall of Fame</a></li>
+            <li><a href="registration.html" style="color:var(--cyan);text-shadow:0 0 10px rgba(0,242,255,0.5);"><i class="fa-solid fa-user-plus" style="margin-right:4px;"></i>Join CPC</a></li>
+            <li><a href="#verify">ID Checker</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="dashboard.html" class="nav-btn" style="color:#a855f7;border-color:rgba(168,85,247,0.5);">Login</a>
+            <a href="mama.html" class="nav-btn admin-link">Admin</a>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="cyber-tag">ESTABLISHED 1995</div>
+            <h1 class="glitch-text" data-text="INNOVATION">INNOVATION & <br><span class="gradient-text">EXCELLENCE.</span></h1>
+            <p class="hero-para">The leading technology community at Dhaka International University. Mastering Competitive Programming & Research in the era of AI. <br><strong>April 2026</strong></p>
+            <div class="cta-group">
+                <a href="legacy.html" class="cyber-btn primary">Explore Legacy</a>
+                <a href="#verify" class="cyber-btn secondary">Secure Portal</a>
+            </div>
         </div>
 
-        <div class="search-section">
-            <form id="searchForm">
-                <div class="input-group">
-                    <input type="email" id="emailInput" placeholder="Enter your registered email" required
-                        autocomplete="email">
-                    <button type="submit" id="searchBtn">
-                        <span id="btnText">Verify ID</span>
-                        <div class="spinner" id="btnSpinner"></div>
-                    </button>
-                </div>
-                <div class="error-message" id="errorMsg"></div>
-            </form>
+        <div class="stats-grid">
+            <div class="stat-item neon-box">
+                <span class="stat-val">760+</span>
+                <span class="stat-tag">MEMBERS</span>
+            </div>
+            <div class="stat-item neon-box">
+                <span class="stat-val">50+</span>
+                <span class="stat-tag">EVENTS</span>
+            </div>
+            <div class="stat-item neon-box">
+                <span class="stat-val">25+</span>
+                <span class="stat-tag">NATIONALS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CP Section & Announcements -->
+    <!-- 2026 Activity Timeline Section -->
+    <section id="activities-2026" style="padding:4rem 8%; max-width:1200px; margin:0 auto;">
+        <h2 class="section-title futuristic-header" style="margin-bottom:3rem;">ACTIVITY 2026 <span style="color:var(--cyan);">// SCHEDULE</span></h2>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:2rem;">
+            
+            <!-- Completed -->
+            <div class="glass-card" style="border-left:4px solid #10b981;">
+                <h3 style="color:#10b981; font-family:var(--font-cyber); margin-bottom:1rem;"><i class="fa-solid fa-check-circle"></i> COMPLETED</h3>
+                <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:0.5rem;"><strong style="color:#fff;">18 April 2026</strong></p>
+                <p style="font-size:0.95rem;">Global Opportunities Session: Erasmus Mundus Scholarship Program</p>
+            </div>
+
+            <!-- Ongoing -->
+            <div class="glass-card" style="border-left:4px solid var(--cyan);">
+                <h3 style="color:var(--cyan); font-family:var(--font-cyber); margin-bottom:1rem;"><i class="fa-solid fa-rotate"></i> CORE ONGOING</h3>
+                <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:1rem;">
+                    <li><strong style="color:#fff;">Weekly Programming Contest</strong><br><span style="font-size:0.85rem; color:var(--text-muted);">Organized every week to strengthen problem-solving skills.</span></li>
+                    <li><strong style="color:#fff;">Monthly Programming Contest</strong><br><span style="font-size:0.85rem; color:var(--text-muted);">Comprehensive advanced-level challenges and rankings.</span></li>
+                </ul>
+            </div>
+
+            <!-- Special -->
+            <div class="glass-card" style="border-left:4px solid var(--gold);">
+                <h3 style="color:var(--gold); font-family:var(--font-cyber); margin-bottom:1rem;"><i class="fa-solid fa-star"></i> SPECIAL PROGRAMS</h3>
+                <ul class="cyber-list" style="margin:0; font-size:0.9rem;">
+                    <li><span class="li-dot"></span> Developer Workshop: Mastering Git & GitHub</li>
+                    <li><span class="li-dot"></span> Software Project Leadership (SPL) Course</li>
+                    <li><span class="li-dot"></span> DataSprint: Datathon & CP Challenge</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="result-card hidden" id="resultCard">
-            <div class="success-icon">✓</div>
-            <h2>Member Verified</h2>
-            <div class="member-grid">
-                <div class="data-group">
-                    <span class="label">Name</span>
-                    <span class="value" id="resName">--</span>
-                </div>
-                <div class="data-group highlighted">
-                    <span class="label">Member ID</span>
-                    <span class="value" id="resMemberId">--</span>
-                </div>
-                <div class="data-group">
-                    <span class="label">Batch</span>
-                    <span class="value" id="resBatch">--</span>
-                </div>
-                <div class="data-group">
-                    <span class="label">Roll Number</span>
-                    <span class="value" id="resRoll">--</span>
-                </div>
-                <div class="data-group">
-                    <span class="label">Registration</span>
-                    <span class="value" id="resRegistration">--</span>
-                </div>
-                <div class="data-group">
-                    <span class="label">Department</span>
-                    <span class="value" id="resDept">--</span>
-                </div>
-                <div class="data-group">
-                    <span class="label">Phone</span>
-                    <span class="value" id="resPhone">--</span>
-                </div>
-                <div class="data-group">
-                    <span class="label">Joining Year</span>
-                    <span class="value" id="resJoined">--</span>
+        <!-- Upcoming Timeline -->
+        <h3 style="font-family:var(--font-cyber); color:#fff; font-size:1.5rem; margin:4rem 0 2rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:1rem;">UPCOMING EVENT SEQUENCE</h3>
+        <div style="display:flex; flex-direction:column; gap:1.5rem;">
+            
+            <div style="display:flex; gap:1.5rem; background:rgba(255,255,255,0.03); padding:1.5rem; border-radius:12px; border:1px solid rgba(0,242,255,0.1);">
+                <div style="flex-shrink:0; font-family:var(--font-cyber); color:var(--cyan); font-size:1.2rem; min-width:80px;">APR<br>2026</div>
+                <div>
+                    <ul class="cyber-list">
+                        <li><span class="li-dot"></span> Strategic Planning Meeting with Industry Mentor</li>
+                        <li><span class="li-dot"></span> Career Development Seminar: CV, Personal & Goal Statement Writing</li>
+                        <li><span class="li-dot"></span> Official Launch of the DIU CPC Website</li>
+                    </ul>
                 </div>
             </div>
 
-            <button class="reset-btn" id="resetBtn">Search Another</button>
+            <div style="display:flex; gap:1.5rem; background:rgba(255,255,255,0.03); padding:1.5rem; border-radius:12px; border:1px solid rgba(0,242,255,0.1);">
+                <div style="flex-shrink:0; font-family:var(--font-cyber); color:var(--purple); font-size:1.2rem; min-width:80px;">MAY<br>2026</div>
+                <div>
+                    <ul class="cyber-list">
+                        <li><span class="li-dot"></span> 99 Days of Coding</li>
+                        <li><span class="li-dot"></span> AlgoHub 3.0: Data structure learning competition series</li>
+                        <li><span class="li-dot"></span> Workshop: Mastering Git & GitHub</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="display:flex; gap:1.5rem; background:rgba(255,255,255,0.03); padding:1.5rem; border-radius:12px; border:1px solid rgba(0,242,255,0.1);">
+                <div style="flex-shrink:0; font-family:var(--font-cyber); color:var(--cyan); font-size:1.2rem; min-width:80px;">JUN<br>2026</div>
+                <div>
+                    <ul class="cyber-list">
+                        <li><span class="li-dot"></span> Tech Talk Series: Industry Insights Session</li>
+                        <li><span class="li-dot"></span> Professional Development Seminar (On-Campus Session)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="display:flex; gap:1.5rem; background:rgba(255,255,255,0.03); padding:1.5rem; border-radius:12px; border:1px solid rgba(0,242,255,0.1);">
+                <div style="flex-shrink:0; font-family:var(--font-cyber); color:var(--gold); font-size:1.2rem; min-width:80px;">JUL<br>2026</div>
+                <div>
+                    <ul class="cyber-list">
+                        <li><span class="li-dot"></span> Knowledge Quest: Book Giving Contest – July</li>
+                        <li><span class="li-dot"></span> CodeStorm: Hackathon & Competitive Programming Event</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
-    </main>
+    </section>
+
+    <section id="cp-section">
+        <h2 class="section-title futuristic-header">DATA STREAM & LOGICS</h2>
+        
+        <div class="glass-card main-announcement reveal">
+            <div class="status-nodes">
+                <span class="pulse-node"></span>
+                <span class="pulse-node"></span>
+                <span class="pulse-node"></span>
+            </div>
+            <h2 class="cyber-heading">ANNOUNCEMENT_LOG</h2>
+            <p class="announcement-text">The DIU CPC committee is currenty optimizing the 2026 Event Calendar. New challenges and hackathons will be synchronized here shortly.</p>
+            <div class="cyber-footer">STATUS: PRE-ANNOUNCEMENT PHASE // 2026</div>
+        </div>
+
+        <div class="dual-grid">
+            <div class="glass-card roadmap-card reveal">
+                <h3><i class="fa-solid fa-code-branch"></i> EVOLUTION_PATH</h3>
+                <ul class="cyber-list">
+                    <li><span class="li-dot"></span> Algorithmic Foundations (C++)</li>
+                    <li><span class="li-dot"></span> Advanced Data Structures</li>
+                    <li><span class="li-dot"></span> Graph Neural Networks</li>
+                </ul>
+            </div>
+            <div class="glass-card leaderboard-card reveal">
+                <h3><i class="fa-solid fa-bolt"></i> TOP_PERFORMERS</h3>
+                <div class="cyber-table-wrap">
+                    <table id="leaderboardTable">
+                        <tbody id="leaderboardBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2 class="section-title futuristic-header">VISUAL ARCHIVE</h2>
+        
+        <div class="filter-controls">
+            <button class="nav-pill active" data-category="all">ALL_FILES</button>
+            <button class="nav-pill" data-category="fests">FESTS</button>
+            <button class="nav-pill" data-category="nasa">NASA_APPS</button>
+            <button class="nav-pill" data-category="icpc">ICPC_LOGS</button>
+        </div>
+
+        <div class="dynamic-gallery" id="masonryGallery">
+            <!-- Dynamically injected or hardcoded highlights -->
+            <div class="gal-card" data-category="fests">
+                <img src="Galary/Diu%20cpc%20fall%20fest%202024%20/IMG_20241204_151351_Tempest-LMC8.4-F3-v5.2.jpg" alt="Fall Fest">
+                <div class="gal-info">TIMESTAMP: DEC 2024</div>
+            </div>
+            <div class="gal-card" data-category="nasa">
+                <img src="Galary/Nasa%20Space%20Apps%20Challenge%20Achivements%20Global%20Nominee%20and%20honarable%20mention%202025/571252697_1241239524690861_7680242184362671601_n.jpg" alt="NASA 2025">
+                <div class="gal-info">CATEGORY: NASA 2025</div>
+            </div>
+            <div class="gal-card" data-category="icpc">
+                <img src="Galary/ICPC/399183549_1253816262097040_3411358343477002701_n.jpg" alt="ICPC">
+                <div class="gal-info">LOG: ICPC_REGIONAL</div>
+            </div>
+            <div class="gal-card" data-category="fests">
+                <img src="Galary/extra/DSC_0128.JPG" alt="Extra">
+                <div class="gal-info">EVENT: NETWORKING</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wall of Fame -->
+    <section id="achievements">
+        <h2 class="section-title futuristic-header">WALL OF FAME</h2>
+        <div class="fame-grid">
+            <div class="fame-hex reveal">
+                <div class="hex-tag">GLOBAL 2025</div>
+                <h4>NASA SPACE APPS</h4>
+                <p>Global Nominees & Honorable Mentions. Representing DIU pride on the cosmic level.</p>
+                <div class="fame-img-wrap">
+                    <img src="Galary/Nasa Space Apps Challenge Achivements Global Nominee and honarable mention 2025/570876213_1241236344691179_8707416131532372335_n.jpg" alt="NASA Team">
+                </div>
+            </div>
+            <div class="fame-hex reveal">
+                <div class="hex-tag">LEGACY 2023</div>
+                <h4>MIND GAMES</h4>
+                <ul class="fame-list">
+                    <li><i class="fa-solid fa-chess"></i> Chess: M. Abdullahi</li>
+                    <li><i class="fa-solid fa-puzzle-piece"></i> Sudoku: A.R. Khan</li>
+                    <li><i class="fa-solid fa-gamepad"></i> FIFA: Sadi Al Rafe</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member Portal — Matches deployed cpc-membership-id-cheaker.onrender.com -->
+    <section id="verify">
+        <h2 class="section-title futuristic-header">MEMBERSHIP ID CHECKER</h2>
+        <div class="id-checker-container glass-card">
+            <!-- Search Section -->
+            <div class="checker-search" id="checkerSearch">
+                <div class="checker-header">
+                    <img src="logo.png" alt="CPC Logo" class="checker-logo">
+                    <h2 class="checker-title">Membership ID Checker</h2>
+                    <p class="checker-subtitle">Access your DIU Computer Programming Club membership details.</p>
+                </div>
+                <form id="searchForm" class="checker-form">
+                    <div class="checker-input-group">
+                        <input type="email" id="emailInput" placeholder="Enter your registered email" required>
+                        <button type="submit" id="searchBtn">
+                            <span id="btnText">Search</span>
+                            <div class="checker-spinner" id="btnSpinner"></div>
+                        </button>
+                    </div>
+                    <div class="checker-error" id="errorMsg"></div>
+                </form>
+            </div>
+
+            <!-- Result Card -->
+            <div class="checker-result hidden" id="resultCard">
+                <div class="checker-success-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                </div>
+                <h2 class="checker-result-title">Member Verified</h2>
+                <div class="member-grid">
+                    <div class="data-group highlighted">
+                        <span class="data-label">Full Name</span>
+                        <span class="data-value" id="resName">—</span>
+                    </div>
+                    <div class="data-group highlighted">
+                        <span class="data-label">Member ID</span>
+                        <span class="data-value" id="resMemberId">—</span>
+                    </div>
+                    <div class="data-group">
+                        <span class="data-label">Batch</span>
+                        <span class="data-value" id="resBatch">—</span>
+                    </div>
+                    <div class="data-group">
+                        <span class="data-label">Roll No.</span>
+                        <span class="data-value" id="resRoll">—</span>
+                    </div>
+                    <div class="data-group">
+                        <span class="data-label">Registration</span>
+                        <span class="data-value" id="resRegistration">—</span>
+                    </div>
+                    <div class="data-group">
+                        <span class="data-label">Department</span>
+                        <span class="data-value" id="resDept">—</span>
+                    </div>
+                    <div class="data-group">
+                        <span class="data-label">Phone</span>
+                        <span class="data-value" id="resPhone">—</span>
+                    </div>
+                    <div class="data-group">
+                        <span class="data-label">Joined CPC</span>
+                        <span class="data-value" id="resJoined">—</span>
+                    </div>
+                </div>
+                <button class="checker-reset-btn" id="resetBtn">Search Again</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wrap">
+            <div class="foot-col">
+                <h3 class="brand-text">DIU CPC</h3>
+                <p>OPERATIONAL SINCE 1995 // PROTOCOL: EXCELLENCE</p>
+            </div>
+            <div class="foot-col">
+                <div class="social-stream">
+                    <a href="mailto:diucsecpc.official@gmail.com" title="Mail Us"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/diucsecpc" target="_blank" rel="noopener" title="DIU CPC Official Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">© 2026 DIU CPC // DEVELOPED BY LABIB & Antigravity</div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+    </div>
 
     <script src="app.js"></script>
 </body>
-
 </html>

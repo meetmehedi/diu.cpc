@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIU CPC | The Legacy & Committee</title>
+    <meta name="description" content="The Chronicle of DIU CPC — from the First Expedition to the Current Command.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ─── Avatar placeholder (no broken img) ─── */
+        .avatar {
+            width: 110px; height: 110px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.5rem;
+            border: 2px solid var(--border);
+            background: linear-gradient(135deg, rgba(0,242,255,0.1), rgba(168,85,247,0.1));
+            font-family: var(--font-cyber); font-size: 2rem;
+            color: rgba(255,255,255,0.4); flex-shrink: 0;
+            transition: 0.4s; position: relative; overflow: hidden;
+        }
+        .avatar::before {
+            content: ''; position: absolute; inset: 0; border-radius: 50%;
+            background: radial-gradient(circle at 40% 30%, rgba(255,255,255,0.08), transparent);
+        }
+        .avatar img {
+            width: 100%; height: 100%; object-fit: cover;
+            border-radius: 50%; display: block;
+        }
+        .member-card:hover .avatar {
+            border-color: var(--cyan);
+            box-shadow: 0 0 20px rgba(0,242,255,0.4);
+            transform: scale(1.08);
+        }
+        .avatar-lg { width: 140px; height: 140px; font-size: 2.5rem; }
+        .avatar-sm { width: 90px; height: 90px; font-size: 1.5rem; }
+        .avatar-gold { border-color: var(--gold); background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.05)); }
+        .avatar-purple { border-color: var(--purple); background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(168,85,247,0.05)); }
+
+        /* ─── Legacy hero ─── */
+        .legacy-hero {
+            min-height: 100vh; display: flex; align-items: center;
+            padding: 140px 8% 80px;
+        }
+        .legacy-hero-content { max-width: 720px; }
+
+        .timeline-tag {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 6px 20px; border-radius: 50px;
+            border: 1px solid rgba(0,242,255,0.25);
+            background: rgba(0,242,255,0.05);
+            font-family: var(--font-cyber); font-size: 0.65rem;
+            letter-spacing: 4px; color: var(--cyan); margin-bottom: 1.5rem;
+        }
+
+        /* ─── Era sections ─── */
+        .era-section { padding: 80px 8% 40px; }
+
+        .era-header {
+            display: flex; align-items: center; gap: 2.5rem;
+            margin-bottom: 4rem; flex-wrap: wrap;
+        }
+        .era-year {
+            font-family: var(--font-cyber); font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900; color: transparent;
+            -webkit-text-stroke: 1px rgba(0,242,255,0.35); line-height: 1; flex-shrink: 0;
+        }
+        .era-info h2 { font-family: var(--font-cyber); font-size: clamp(1.2rem,2.5vw,1.8rem); margin-bottom: 0.4rem; }
+        .era-info p { color: var(--text-muted); font-size: 0.9rem; }
+
+        .era-divider {
+            height: 1px; margin: 60px 8%;
+            background: linear-gradient(90deg, transparent, rgba(0,242,255,0.2), transparent);
+        }
+
+        /* ─── President card ─── */
+        .president-wrap { display: flex; justify-content: center; margin-bottom: 3.5rem; }
+        .president-card {
+            max-width: 340px; width: 100%;
+            background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(0,242,255,0.05));
+            border: 1px solid rgba(245,158,11,0.3); border-radius: 32px;
+            padding: 3rem 2rem; text-align: center; position: relative;
+        }
+        .president-card::after {
+            content: '★ PRESIDENT ★'; position: absolute; top: -14px; left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-cyber); font-size: 0.55rem; letter-spacing: 3px;
+            background: var(--bg); padding: 4px 18px; color: var(--gold);
+            border: 1px solid rgba(245,158,11,0.4); border-radius: 50px;
+        }
+        .president-card .member-name { font-size: 1.25rem; }
+
+        /* ─── Wing heads grid ─── */
+        .wings-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(230px,1fr));
+            gap: 1.5rem; margin-bottom: 2.5rem;
+        }
+        .wing-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 20px; padding: 2rem 1.5rem; text-align: center; transition: 0.4s;
+        }
+        .wing-card:hover {
+            border-color: rgba(168,85,247,0.4); transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(168,85,247,0.1);
+        }
+        .wing-card .member-name { font-size: 0.9rem; }
+        .wing-card .member-role { color: var(--purple); }
+
+        /* ─── Role label ─── */
+        .role-label {
+            font-family: var(--font-cyber); font-size: 0.65rem; letter-spacing: 4px;
+            color: var(--text-muted); text-align: center; margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        /* ─── Exec pill list ─── */
+        .exec-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 20px; padding: 2rem 2.5rem;
+        }
+        .exec-card h3 {
+            font-family: var(--font-cyber); font-size: 0.7rem; letter-spacing: 3px;
+            color: var(--text-muted); margin-bottom: 1.5rem; text-transform: uppercase;
+        }
+        .exec-names { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+        .exec-pill {
+            padding: 5px 14px; border-radius: 50px; border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03); font-size: 0.8rem; color: var(--text-muted); transition: 0.3s;
+        }
+        .exec-pill:hover { border-color: rgba(0,242,255,0.3); color: var(--cyan); }
+
+        /* ─── Official doc image ─── */
+        .doc-preview {
+            border-radius: 20px; overflow: hidden; border: 1px solid var(--border);
+            transition: 0.4s; cursor: pointer; position: relative;
+        }
+        .doc-preview:hover { border-color: rgba(0,242,255,0.3); transform: scale(1.01); }
+        .doc-preview img { width: 100%; display: block; }
+        .doc-preview-label {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+            padding: 1.5rem 1.2rem 0.8rem;
+            font-family: var(--font-cyber); font-size: 0.62rem; letter-spacing: 2px; color: var(--cyan);
+        }
+
+        /* ─── 2-col layout for doc + cards ─── */
+        .split-layout {
+            display: grid; grid-template-columns: 1fr 1.5fr; gap: 2.5rem;
+            align-items: start;
+        }
+
+        /* ─── Advisor card ─── */
+        .advisor-card {
+            background: var(--surface); border: 1px solid rgba(245,158,11,0.2);
+            border-radius: 20px; padding: 1.5rem 2rem;
+            display: flex; align-items: center; gap: 1.2rem;
+        }
+        .advisor-icon { color: var(--gold); font-size: 1.5rem; flex-shrink: 0; }
+        .advisor-name { font-family: var(--font-cyber); font-size: 0.85rem; }
+        .advisor-role { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
+        .advisors-grid { display: flex; flex-direction: column; gap: 1rem; }
+
+        /* ─── Back btn ─── */
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 9px 22px; border-radius: 50px;
+            border: 1px solid var(--border); background: var(--surface);
+            color: var(--text-muted); text-decoration: none;
+            font-family: var(--font-cyber); font-size: 0.62rem; letter-spacing: 2px;
+            transition: 0.3s; margin-bottom: 2rem;
+        }
+        .back-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+
+        @media (max-width: 768px) {
+            .split-layout { grid-template-columns: 1fr; }
+            .wings-grid { grid-template-columns: 1fr 1fr; }
+            .era-section { padding: 60px 5% 30px; }
+            .era-divider { margin: 40px 5%; }
+        }
+        @media (max-width: 480px) {
+            .wings-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background -->
+    <div class="background-container"></div>
+    <div class="bg-blobs">
+        <div class="blob blob-cyan"></div>
+        <div class="blob blob-purple"></div>
+        <div class="blob blob-gold"></div>
+    </div>
+    <div class="cyber-grid"></div>
+    <div class="scanline"></div>
+    <div id="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="logo.png" alt="CPC Logo" class="nav-logo">
+            <span class="brand-text">DIU CPC</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="legacy.html" style="color:var(--cyan)">Legacy</a></li>
+            <li><a href="index.html#cp-section">CP Section</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#achievements">Hall of Fame</a></li>
+            <li><a href="index.html#verify">Portal</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="mama.html" class="nav-btn admin-link">Admin</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <section class="legacy-hero">
+        <div class="legacy-hero-content">
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Mainframe</a>
+            <div class="timeline-tag">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                ESTD. 7TH APRIL 1995 // CLUB CHRONICLES
+            </div>
+            <h1 class="glitch-text">THE CPC<br><span class="gradient-text">CHRONICLE</span></h1>
+            <p class="hero-para">Archiving the architects of our digital frontier — from the First Expedition of 2019 to the Current Command of 2025. Every member who donned the DIU CPC banner left a mark.</p>
+            <div class="cta-group">
+                <a href="#command-2025" class="cyber-btn primary"><i class="fa-solid fa-bolt"></i>&nbsp; Current Command</a>
+                <a href="#expedition-2019" class="cyber-btn secondary"><i class="fa-solid fa-landmark"></i>&nbsp; First Expedition</a>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- ══════════════════════════════════════════════
+         ERA 2026-27
+         ══════════════════════════════════════════════ -->
+    <section class="era-section" id="command-2026">
+        <div class="era-header reveal">
+            <div class="era-year">2026</div>
+            <div class="era-info">
+                <h2>CURRENT <span class="gradient-text">COMMAND</span></h2>
+                <p>Committee Term 2026-27</p>
+            </div>
+        </div>
+        <p class="role-label reveal">Core Leadership</p>
+        <div class="president-wrap reveal">
+            <div class="president-card">
+                <div class="avatar avatar-lg avatar-gold" style="margin:0 auto 1.5rem; box-shadow:0 0 30px rgba(245,158,11,0.3);"><i class="fa-solid fa-crown" style="color:var(--gold)"></i></div>
+                <h3 class="member-name">MD. MEHEDI HASAN</h3>
+                <p class="member-role" style="color:var(--gold);">President</p>
+                <p class="dept"></p>
+            </div>
+        </div>
+
+        <p class="role-label reveal">Core Operations</p>
+        <div class="roster-grid reveal" style="max-width:1100px; margin:0 auto 2.5rem;">
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <h3 class="member-name">MD MAHADI RAHMAN LABIB</h3>
+                <p class="member-role">Vice President</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">MD YOUSUF HOSSAIN</h3>
+                <p class="member-role">General Secretary</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-coins"></i></div>
+                <h3 class="member-name">MD. MOSFIQUR RAHMAN</h3>
+                <p class="member-role">Treasurer</p>
+                <p class="dept"></p>
+            </div>
+        </div>
+
+        <p class="role-label reveal">Management Wing</p>
+        <div class="roster-grid reveal" style="max-width:1100px; margin:0 auto 2.5rem;">
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">FARDIN KAMAL</h3>
+                <p class="member-role">Competition Lead</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">MARJANAH AFROSE</h3>
+                <p class="member-role">Woman's  Coordinator</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">MST. MISKATUN JANNAT</h3>
+                <p class="member-role">Assistant Women's Coordinator</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">MD. AL NOMAN ROBIN MRIDA</h3>
+                <p class="member-role">Event Coordinator</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">MASRAFI MUBIN</h3>
+                <p class="member-role">Assistant Event Coordinator</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-user-astronaut"></i></div>
+                <h3 class="member-name">MD. ASIKUR RAHMAN KHAN (D-90)</h3>
+                <p class="member-role">Public Relationship Officer (PRO)</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-user-astronaut"></i></div>
+                <h3 class="member-name">S M NABIL AUSAF</h3>
+                <p class="member-role">Program Manager</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-pen-nib"></i></div>
+                <h3 class="member-name">MIR YEASIR ABRAR</h3>
+                <p class="member-role">Publication Officer</p>
+                <p class="dept"></p>
+            </div>
+        </div>
+
+        <div class="exec-card reveal" style="max-width:1100px; margin:0 auto 3rem;">
+            <h3><i class="fa-solid fa-users" style="color:var(--cyan); margin-right:8px;"></i>Executive Members — 2026-27</h3>
+            <div class="exec-names">
+                <span class="exec-pill">Abdul Al Mahin </span>
+                <span class="exec-pill">Asraful Islam Sharthak </span>
+                <span class="exec-pill">Apurbo Karmakar Shuvo </span>
+                <span class="exec-pill">Dibakor Pramanik </span>
+                <span class="exec-pill">Sudip Kumar </span>
+                <span class="exec-pill">Dolan Dhrubo Ray </span>
+                <span class="exec-pill">Fariha Sabrin Shoily </span>
+                <span class="exec-pill">Samiul Hasan Siyam </span>
+                <span class="exec-pill">Md.Muhaiminul Islam Mukit </span>
+            </div>
+        </div>
+    </section>
+    <div class="era-divider"></div>
+
+    <!-- ══════════════════════════════════════════════
+         ERA 2025-26
+         ══════════════════════════════════════════════ -->
+    <section class="era-section" id="command-2025">
+        <div class="era-header reveal">
+            <div class="era-year">2025</div>
+            <div class="era-info">
+                <h2>TERM <span style="color:var(--cyan)">2025-26</span></h2>
+                <p>Committee Term 2025-26</p>
+            </div>
+        </div>
+        <p class="role-label reveal">Core Leadership</p>
+        <div class="president-wrap reveal">
+            <div class="president-card">
+                <div class="avatar avatar-lg avatar-gold" style="margin:0 auto 1.5rem; box-shadow:0 0 30px rgba(245,158,11,0.3);"><i class="fa-solid fa-crown" style="color:var(--gold)"></i></div>
+                <h3 class="member-name">SARKER SIFATULLAH HAQUE SAJEEB</h3>
+                <p class="member-role" style="color:var(--gold);">President</p>
+                <p class="dept"></p>
+            </div>
+        </div>
+
+        <p class="role-label reveal">Core Operations</p>
+        <div class="roster-grid reveal" style="max-width:1100px; margin:0 auto 2.5rem;">
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <h3 class="member-name">MD RASEL ISLAM</h3>
+                <p class="member-role">Vice President</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <h3 class="member-name">MD ALAM HOSSAIN</h3>
+                <p class="member-role">Vice President</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">ASIF ELAHI</h3>
+                <p class="member-role">General Secretary</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">MD SOUMIK HASAN</h3>
+                <p class="member-role">Joint Secretary</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">FATEMA KHANOM URMI</h3>
+                <p class="member-role">Joint Secretary</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-coins"></i></div>
+                <h3 class="member-name">MD YOUSUF HOSSAIN</h3>
+                <p class="member-role">Treasurer</p>
+                <p class="dept"></p>
+            </div>
+        </div>
+
+        <p class="role-label reveal">Management Wing</p>
+        <div class="roster-grid reveal" style="max-width:1100px; margin:0 auto 2.5rem;">
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">MD MEHEDI HASAN</h3>
+                <p class="member-role">Event Coordinator</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">SHIHAB SHARIAR</h3>
+                <p class="member-role">Programming Lead</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">MD MAHADI RAHMAN LABIB</h3>
+                <p class="member-role">Competitive Programming Coordinator</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">FOYSAL MAHMUD ZIHAK</h3>
+                <p class="member-role">Technical Coordinator</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">MST. MISKATUN JANNAT</h3>
+                <p class="member-role">Membership Coordinator</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-user-astronaut"></i></div>
+                <h3 class="member-name">MARJANAH AFROSE</h3>
+                <p class="member-role">Public Relationship Manager</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">MD MAHBUB ALAM EFAZ</h3>
+                <p class="member-role">Evening Batches Coordinator</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">SUMAIYA AKTER</h3>
+                <p class="member-role">Woman's Coordinator</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">MD NAZMUS SAKIB</h3>
+                <p class="member-role">Public Relationship Coordinator</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-user-astronaut"></i></div>
+                <h3 class="member-name">MD MOSFIQUR RAHMAN</h3>
+                <p class="member-role">Social Media Manager</p>
+                <p class="dept"></p>
+            </div>
+        </div>
+
+        <div class="exec-card reveal" style="max-width:1100px; margin:0 auto 3rem;">
+            <h3><i class="fa-solid fa-users" style="color:var(--cyan); margin-right:8px;"></i>Executive Members — 2025-26</h3>
+            <div class="exec-names">
+                <span class="exec-pill">Md Badhon Mia </span>
+                <span class="exec-pill">Md Shihab Naim </span>
+                <span class="exec-pill">Shohidur Rahman Sharif </span>
+                <span class="exec-pill">Md Siamul Islam Soaib </span>
+                <span class="exec-pill">Fardin Kamal </span>
+                <span class="exec-pill">Al Tuhim Md Shaad </span>
+                <span class="exec-pill">S M Nabil Ausaf </span>
+                <span class="exec-pill">Al Noman Robin </span>
+                <span class="exec-pill">Md Asikur Rahman Khan </span>
+                <span class="exec-pill">Eastodev Roy Utso </span>
+                <span class="exec-pill">Masrafi Mubin </span>
+                <span class="exec-pill">Abdullah Al Masud </span>
+                <span class="exec-pill">Mir Yeasir Abrar </span>
+                <span class="exec-pill">Yasin Arafat Hira </span>
+                <span class="exec-pill">Shima Akter </span>
+                <span class="exec-pill">Ainul Barifarabi </span>
+            </div>
+        </div>
+    </section>
+    <div class="era-divider"></div>
+
+    <!-- ══════════════════════════════════════════════
+         ERA 2024-2025
+         ══════════════════════════════════════════════ -->
+    <section class="era-section" id="command-2024">
+        <div class="era-header reveal">
+            <div class="era-year">2024</div>
+            <div class="era-info">
+                <h2>TERM <span style="color:var(--cyan)">2024-2025</span></h2>
+                <p>Committee Term 2024-2025</p>
+            </div>
+        </div>
+        <p class="role-label reveal">Core Leadership</p>
+        <div class="president-wrap reveal">
+            <div class="president-card">
+                <div class="avatar avatar-lg avatar-gold" style="margin:0 auto 1.5rem; box-shadow:0 0 30px rgba(245,158,11,0.3);"><i class="fa-solid fa-crown" style="color:var(--gold)"></i></div>
+                <h3 class="member-name">ELIAS UR RAHMAN</h3>
+                <p class="member-role" style="color:var(--gold);">President</p>
+                <p class="dept"></p>
+            </div>
+        </div>
+
+        <p class="role-label reveal">Core Operations</p>
+        <div class="roster-grid reveal" style="max-width:1100px; margin:0 auto 2.5rem;">
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <h3 class="member-name">MD MURSALATUL ISLAM PALLOB</h3>
+                <p class="member-role">Vice President</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">ADIL MAHMOUD RION</h3>
+                <p class="member-role">General Secretary</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-coins"></i></div>
+                <h3 class="member-name">ASIF ELAHI</h3>
+                <p class="member-role">Treasurer</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">UMME ARA MAHINUR ISTIA</h3>
+                <p class="member-role">Public Relationship Secretary</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">MD ASRAFUL MOLLA</h3>
+                <p class="member-role">Publicity Secretary</p>
+                <p class="dept"></p>
+            </div>
+        </div>
+
+        <p class="role-label reveal">Management Wing</p>
+        <div class="roster-grid reveal" style="max-width:1100px; margin:0 auto 2.5rem;">
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">TANBIR MAHTAB LABIBE</h3>
+                <p class="member-role">Event Coordinator</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">FATEMA KHANOM URMI</h3>
+                <p class="member-role">Woman's Program Coordinator</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-user-astronaut"></i></div>
+                <h3 class="member-name">SARKER SIFATULLAH HAQUE SAJEEB</h3>
+                <p class="member-role">Program Manager</p>
+                <p class="dept"></p>
+            </div>
+        </div>
+
+        <div class="exec-card reveal" style="max-width:1100px; margin:0 auto 3rem;">
+            <h3><i class="fa-solid fa-users" style="color:var(--cyan); margin-right:8px;"></i>Executive Members — 2024-2025</h3>
+            <div class="exec-names">
+                <span class="exec-pill">Md Rasel Islam </span>
+                <span class="exec-pill">Soumik Hasan </span>
+                <span class="exec-pill">Md Limon Mia </span>
+                <span class="exec-pill">Rasheduzzaman Rakib </span>
+                <span class="exec-pill">Rajiya Sultana </span>
+                <span class="exec-pill">Md Sozon </span>
+                <span class="exec-pill">Md Mahadi Rahman Labib </span>
+                <span class="exec-pill">Md Rakibul Islam </span>
+                <span class="exec-pill">Md Mehedi Hasan </span>
+                <span class="exec-pill">Md Yousuf Hossain </span>
+                <span class="exec-pill">Marjanah Afrose </span>
+                <span class="exec-pill">Foysal Mahmud Zihak </span>
+                <span class="exec-pill">Md Khyruzzaman </span>
+            </div>
+        </div>
+    </section>
+    <div class="era-divider"></div>
+
+    <!-- ══════════════════════════════════════════════
+         ERA 2023-24
+         ══════════════════════════════════════════════ -->
+    <section class="era-section" id="command-2023">
+        <div class="era-header reveal">
+            <div class="era-year">2023</div>
+            <div class="era-info">
+                <h2>TERM <span style="color:var(--cyan)">2023-24</span></h2>
+                <p>Committee Term 2023-24</p>
+            </div>
+        </div>
+        <p class="role-label reveal">Core Leadership</p>
+        <div class="president-wrap reveal">
+            <div class="president-card">
+                <div class="avatar avatar-lg avatar-gold" style="margin:0 auto 1.5rem; box-shadow:0 0 30px rgba(245,158,11,0.3);"><i class="fa-solid fa-crown" style="color:var(--gold)"></i></div>
+                <h3 class="member-name">RAKIBUR RAHMAN</h3>
+                <p class="member-role" style="color:var(--gold);">President</p>
+                <p class="dept"></p>
+            </div>
+        </div>
+
+        <p class="role-label reveal">Core Operations</p>
+        <div class="roster-grid reveal" style="max-width:1100px; margin:0 auto 2.5rem;">
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <h3 class="member-name">EAKTEKER JAHAN LIZA</h3>
+                <p class="member-role">Vice President</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">ELIAS UR RAHMAN</h3>
+                <p class="member-role">General Secretary</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-coins"></i></div>
+                <h3 class="member-name">MOHIBUL ISLAM</h3>
+                <p class="member-role">Treasurer</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">UMME ARA MAHINUR ISTIA</h3>
+                <p class="member-role">Publication Secretary</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">SARKER SIFATULLAH HAQUE SAJEEB</h3>
+                <p class="member-role">Publicity Secretary</p>
+                <p class="dept"></p>
+            </div>
+        </div>
+
+        <p class="role-label reveal">Management Wing</p>
+        <div class="roster-grid reveal" style="max-width:1100px; margin:0 auto 2.5rem;">
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-user-astronaut"></i></div>
+                <h3 class="member-name">ADIL MAHMOUD RION</h3>
+                <p class="member-role">Program Manager</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-purple">
+                <div class="avatar avatar-purple"><i class="fa-solid fa-bolt"></i></div>
+                <h3 class="member-name">MD MURSALATUL ISLAM PALLOB</h3>
+                <p class="member-role">Competition Lead</p>
+                <p class="dept"></p>
+            </div>
+        </div>
+
+        <div class="exec-card reveal" style="max-width:1100px; margin:0 auto 3rem;">
+            <h3><i class="fa-solid fa-users" style="color:var(--cyan); margin-right:8px;"></i>Executive Members — 2023-24</h3>
+            <div class="exec-names">
+                <span class="exec-pill">Md Nurul Hudda </span>
+                <span class="exec-pill">Md Ifram Dewan </span>
+                <span class="exec-pill">Rafiul Islam Rasel </span>
+                <span class="exec-pill">D.M Shahriar Hossain Rownok </span>
+                <span class="exec-pill">Tanvir Hasan Shuvo </span>
+                <span class="exec-pill">Rajkumar Sarker </span>
+                <span class="exec-pill">Asif Elahi </span>
+                <span class="exec-pill">Tanveer Sarker </span>
+                <span class="exec-pill">Rajia Sultana </span>
+                <span class="exec-pill">Md Asraful Molla </span>
+                <span class="exec-pill">Mehreen Tabassum Jaima </span>
+            </div>
+        </div>
+    </section>
+    <div class="era-divider"></div>
+
+    <!-- ══════════════════════════════════════════════
+         ERA 2021-2022
+         ══════════════════════════════════════════════ -->
+    <section class="era-section" id="command-2021">
+        <div class="era-header reveal">
+            <div class="era-year">2021</div>
+            <div class="era-info">
+                <h2>TERM <span style="color:var(--cyan)">2021-2022</span></h2>
+                <p>Committee Term 2021-2022</p>
+            </div>
+        </div>
+        <p class="role-label reveal">Core Leadership</p>
+        <div class="president-wrap reveal">
+            <div class="president-card">
+                <div class="avatar avatar-lg avatar-gold" style="margin:0 auto 1.5rem; box-shadow:0 0 30px rgba(245,158,11,0.3);"><i class="fa-solid fa-crown" style="color:var(--gold)"></i></div>
+                <h3 class="member-name">ROWNAK BORHAN</h3>
+                <p class="member-role" style="color:var(--gold);">President</p>
+                <p class="dept"></p>
+            </div>
+        </div>
+
+        <p class="role-label reveal">Core Operations</p>
+        <div class="roster-grid reveal" style="max-width:1100px; margin:0 auto 2.5rem;">
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <h3 class="member-name">EAKTEKER JAHAN LIZA</h3>
+                <p class="member-role">Vice President</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">LUBANA AKTER</h3>
+                <p class="member-role">General Secretary</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">NAFISA LOBABA JABIN</h3>
+                <p class="member-role">Assistant General Secretary</p>
+                <p class="dept"></p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-coins"></i></div>
+                <h3 class="member-name">RAKIBUR RAHMAN</h3>
+                <p class="member-role">Treasurer</p>
+                <p class="dept"></p>
+            </div>
+        </div>
+
+        <div class="exec-card reveal" style="max-width:1100px; margin:0 auto 3rem;">
+            <h3><i class="fa-solid fa-users" style="color:var(--cyan); margin-right:8px;"></i>Executive Members — 2021-2022</h3>
+            <div class="exec-names">
+                <span class="exec-pill">Romana Akter </span>
+                <span class="exec-pill">Shoishob Mohonto </span>
+                <span class="exec-pill">Md Atiqur Rahman </span>
+                <span class="exec-pill">Md Lemon Patwari </span>
+                <span class="exec-pill">Md Nuzmul Hossain </span>
+                <span class="exec-pill">Mashura Akter </span>
+            </div>
+        </div>
+    </section>
+    <div class="era-divider"></div>
+
+    <!-- ══════════════════════════════════════════════
+         ERA 2019-2020
+         ══════════════════════════════════════════════ -->
+    <section class="era-section" id="command-2019">
+        <div class="era-header reveal">
+            <div class="era-year">2019</div>
+            <div class="era-info">
+                <h2>TERM <span style="color:var(--cyan)">2019-2020</span></h2>
+                <p>Committee Term 2019-2020</p>
+            </div>
+        </div>
+        <p class="role-label reveal">Core Leadership</p>
+        <div class="president-wrap reveal">
+            <div class="president-card">
+                <div class="avatar avatar-lg avatar-gold" style="margin:0 auto 1.5rem; box-shadow:0 0 30px rgba(245,158,11,0.3);"><i class="fa-solid fa-crown" style="color:var(--gold)"></i></div>
+                <h3 class="member-name">MEHEDI HASAN LIKHON</h3>
+                <p class="member-role" style="color:var(--gold);">President</p>
+                <p class="dept">D-42</p>
+            </div>
+        </div>
+
+        <p class="role-label reveal">Core Operations</p>
+        <div class="roster-grid reveal" style="max-width:1100px; margin:0 auto 2.5rem;">
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <h3 class="member-name">ARIFUZZAMAN</h3>
+                <p class="member-role">Vice President</p>
+                <p class="dept">E-59</p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <h3 class="member-name">BASHAR OVI</h3>
+                <p class="member-role">Vice President</p>
+                <p class="dept">D-43</p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                <h3 class="member-name">AMDADUL</h3>
+                <p class="member-role">Vice President</p>
+                <p class="dept">E-68</p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">ADITTA</h3>
+                <p class="member-role">General Secretary</p>
+                <p class="dept">D-42</p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">FAZLA RABBI</h3>
+                <p class="member-role">Assistant General Secretary</p>
+                <p class="dept">D-43</p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-pen-clip"></i></div>
+                <h3 class="member-name">ASHIFUR</h3>
+                <p class="member-role">Assistant General Secretary</p>
+                <p class="dept">E-68</p>
+            </div>
+            <div class="member-card tier-cyan">
+                <div class="avatar"><i class="fa-solid fa-coins"></i></div>
+                <h3 class="member-name">ROWNAK BORHAN</h3>
+                <p class="member-role">Treasurer</p>
+                <p class="dept">D-52</p>
+            </div>
+        </div>
+
+        <div class="exec-card reveal" style="max-width:1100px; margin:0 auto 3rem;">
+            <h3><i class="fa-solid fa-users" style="color:var(--cyan); margin-right:8px;"></i>Executive Members — 2019-2020</h3>
+            <div class="exec-names">
+                <span class="exec-pill">Nazrul (D-42)</span>
+                <span class="exec-pill">Sajjadul (E-59)</span>
+                <span class="exec-pill">Abu Sayed (D-43)</span>
+                <span class="exec-pill">Marzan (E-68)</span>
+                <span class="exec-pill">Abdul Mannan (D-42)</span>
+                <span class="exec-pill">Sabuj (E-59)</span>
+                <span class="exec-pill">Rahat kabir (D-43)</span>
+                <span class="exec-pill">Nahidul (E-68)</span>
+                <span class="exec-pill">Noman (D-42)</span>
+                <span class="exec-pill">Rezaul (E-59)</span>
+                <span class="exec-pill">Saidur (D-43)</span>
+                <span class="exec-pill">Shajahan (E-60)</span>
+            </div>
+        </div>
+    </section>
+    <div class="era-divider"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wrap">
+            <div class="foot-col">
+                <h3 class="brand-text">DIU CPC</h3>
+                <p>OPERATIONAL SINCE 7TH APRIL, 1995 // LET INFINITY BE YOUR LIMIT</p>
+            </div>
+            <div class="foot-col">
+                <div class="social-stream">
+                    <a href="https://www.facebook.com/diucpc" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">© 2026 DIU CPC // THE CHRONICLE // KEEPING THE LEGACY ALIVE</div>
+    </footer>
+
+    <!-- Lightbox for doc preview -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox" id="closeLightbox">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" alt="">
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Doc preview lightbox
+        document.querySelectorAll('.doc-preview').forEach(el => {
+            el.addEventListener('click', () => {
+                const img = el.querySelector('img');
+                const lb = document.getElementById('lightbox');
+                document.getElementById('lightboxImg').src = img.src;
+                lb.classList.add('active');
+            });
+        });
+        document.getElementById('closeLightbox').addEventListener('click', () => {
+            document.getElementById('lightbox').classList.remove('active');
+        });
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('lightbox'))
+                document.getElementById('lightbox').classList.remove('active');
+        });
+    </script>
+</body>
+</html>

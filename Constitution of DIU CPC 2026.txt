@@ -1,0 +1,440 @@
+﻿Constitution 
+Of
+Dhaka International University Computer Programming Club (DIU CPC)
+Preamble
+The Dhaka International University Computer Programming Club (DIU CPC) is established to promote programming skills, critical thinking and collaborative learning among students at Dhaka International University (DIU). This constitution is designed to ensure the smooth operation, transparency and sustainability of the club.
+Mission and Vision
+Mission
+Our mission is to develop and enhance students’ problem-solving, analytical thinking and programming capabilities through regular training, workshops and participation in national and international programming contests.
+Vision
+Our vision is to cultivate a culture of excellence, innovation, and continuous learning, equipping our members to become future leaders in the fields of computer science, software engineering and research, while contributing to technological advancements and societal development.
+
+
+Article I: Name and Affiliation
+Section 1: Name
+The club shall be known as the Dhaka International University Computer Programming Club (DIU CPC).
+Section 2: Affiliation
+DIU CPC is affiliated with Dhaka International University.
+
+
+
+
+Article II: Objectives
+1. Promote Interest in Programming
+Foster interest and proficiency in programming and problem-solving among students.
+2. Skill Development
+Conduct workshops, training sessions and contests to enhance technical skills in programming.
+3. Monthly Programming Contests
+DIU CPC must host a unique programming contest every month, featuring original questions designed to challenge members' problem-solving skills and encourage regular practice.
+4. 99 Days of Coding Challenge
+During each committee term, DIU CPC shall organize at least one "99 Days of Coding Challenge," aimed at promoting consistent, long-term skill development and dedication to programming.
+5. AlgoHub Initiative
+In each committee term, DIU CPC must run at least one "AlgoHub" session or series, providing resources, workshops and collaborative learning opportunities focused on algorithms and data structures.
+6. Structured Programming Course
+DIU CPC must organize at least one structured programming course per committee term, designed to systematically teach programming fundamentals to its members.
+7. Career and Academic Support
+Support members in exploring opportunities in computer science, including academic pursuits, competitions, internships and job placements.
+8. Community Building
+Build a supportive community of like-minded individuals interested in computer programming and technology.
+
+
+Article III: Membership
+Section 1: Eligibility
+Membership is open to all currently enrolled students at Dhaka International University interested in programming and related fields.
+
+
+
+
+
+
+
+
+
+
+Section 2: Membership Types
+   * General Member: Open to all DIU students.
+   * Core Committee Member: Selected members responsible for the club's primary functions and operations.
+   * CPC Alumni Advising Committee Member: All previous CPC Core Committee Members are eligible to be the advisor of DIU CPC. 
+Section 3: Termination of Membership
+   * Membership may be revoked for actions contrary to the club’s objectives, subject to a review by the core committee.
+   * CPC Members who graduate will automatically be considered as CPC Alumni and are no longer eligible for active roles.
+Article IV: Core Committee
+Section 1: Composition
+   * The Core Committee shall consist of:
+   * President
+   * Vice-President Competitive Programming (If Needed)
+   * General Secretary
+   * Assistant General Secretary (If Needed)
+   * Treasurer
+   * Women's Leader 
+   * Assistant Women's Leader (If Needed)
+   * Event Coordinator(s) / Operating Engineer
+   * Program Manager (If needed)
+   * Competition Lead
+   * Public Relations Officer (PRO)
+   * Social Media Manager
+   * Publication Engineer 
+   * Evening Coordination Engineer
+   * Executive Members (5+)
+No other positions beyond those listed shall be included in the structure of DIU CPC.
+
+
+
+
+
+
+
+Section 2: Eligibility
+   * For any position excluding Executive Member, candidates must have at least one term of prior experience as an Executive Member in a previous committee.
+   * Members of the Core Committee are not allowed to hold core committee positions in any other DIU clubs to ensure dedicated service to DIU CPC. But they can be a general member in any club.
+Section 3: Selection and Term
+   * Each Core Committee shall be allocated a term of up to twelve (12) months, commencing from the date of official formation.
+   * Core Committee members are selected through an application and interview process conducted by Advising committee members and faculty advisors.
+   * Each core member shall serve a term of one academic year, with the possibility of renewal if they continue to meet eligibility criteria.
+   * In special cases, the committee term may be extended for a short transitional period to ensure smooth handover, as decided by the Advising Committee.
+Section 4: Responsibilities of Core Committee Members
+President
+   * Leads CPC with vision, strategy, and direction
+   * Makes final decisions on major matters
+   * Represents CPC to university and external bodies
+   * Oversees all teams and ensures coordination
+Vice-President (Competitive Programming) (If Needed)
+   * Leads all competitive programming initiatives
+   * Designs training roadmap and strategy
+   * Mentors Competition Lead and CP members
+   * Monitors overall performance in contests
+General Secretary
+   * Manages internal communication and coordination
+   * Prepares meeting agendas, notices, and reports
+   * Tracks execution of plans across all teams
+   * Maintains official records and documentation
+
+
+Assistant General Secretary (If Needed)
+   * Supports the General Secretary
+   * Helps manage communication and follow-ups
+   * Assists in documentation and coordination
+Treasurer
+   * Handles all financial operations
+   * Prepares budgets and tracks expenses
+   * Ensures transparency and proper reporting
+   * Manages funds for events and activities
+Women's Leader (Exclusive to Female) 
+   * Promotes female participation in CPC
+   * Ensures a safe and inclusive environment
+   * Organizes initiatives for women in tech
+   * Represents female members’ concerns
+   * Receives and handles complaints related to female harassment with confidentiality and sensitivity
+   * Coordinates with the core committee to investigate and take appropriate action on such issues
+Assistant Women's Leader (Exclusive to Female) (If Needed) 
+   * Supports the Women’s Leader
+   * Assists in organizing events and outreach
+   * Helps maintain engagement and communication
+Program Manager (If Needed)
+   * Plans all events, workshops, and programs
+   * Creates timelines and assigns responsibilities
+   * Coordinates between different teams
+   * Ensures smooth execution from planning to completion
+Event Coordinator(s) / Operating Engineer
+   * Executes events on ground and Ensures events run smoothly
+   * Manages logistics (venue, time, participants)
+   * Coordinates volunteers and team members
+   * Handles technical setup for events and contests
+
+
+
+
+
+   * Manages platforms, systems, and tools
+   * Provides technical support during programs
+   * Ensures smooth technical operation
+Competition Lead
+   * Organizes contests and practice sessions
+   * Prepares or manages problem sets
+   * Tracks performance of participants
+   * Encourages competitive programming culture
+Public Relations Officer (PRO)
+   * Maintains external communications
+   * Builds partnerships and sponsorships
+   * Represents CPC in collaborations
+   * Handles official outreach
+Social Media Manager
+   * Manages CPC’s social media platforms
+   * Plans and publishes content
+   * Tracks engagement and growth
+   * Works with design and content teams
+Publication Engineer
+   * Handles written content (posts, reports, articles)
+   * Maintains documentation of events
+   * Ensures quality and consistency
+   * Supports content and media teams
+Evening Coordination Engineer
+   * Represents evening batch students
+   * Ensures their participation and engagement
+   * Coordinates communication with evening members
+   * Organizes suitable sessions for them
+Executive Members
+   * Assist in all CPC activities
+   * Work under different teams
+   * Support event execution and operations
+
+
+
+
+Section 5: Decision-Making Authority
+All decisions regarding the club may only be taken by the Core Committee. No other individual or group may make decisions on behalf of DIU CPC or use the club’s name to impose decisions on any individual or organization.
+Article V: Faculty Advisor(s)
+   * Appointed by the Department of CSE authority with strict suggestions from DIU CPC core committee members.
+   * Acts as mentor of DIU CPC
+   * Ensures compliance with university rules
+   * Advisors may provide guidance in financial and event decisions
+   * Shall not hold executive voting power in core decisions
+Article V: Meetings
+Section 1: General Meetings
+   * A general meeting shall be held at least once per semester and open to all club members.
+   * Additional meetings may be called by the President, General Secretary or any other core committee members as necessary.
+Section 2: Core Committee Meetings
+   * Core Committee meetings shall be held monthly to discuss and review club activities.
+   * Emergency meetings may be called by the President with a 6-12 hour notice.
+Article VI: Finance
+Section 1: Funding
+   * The club shall raise funds through university allocations, membership fees and sponsorships if available.
+   * Fundraising activities must comply with DIU regulations.
+Section 2: Financial Management
+   * The Treasurer shall manage club finances, maintain accurate records and prepare financial reports.
+   * All transactions must be conducted by the Treasurer and approved by the President or General Secretary.
+
+
+
+
+   * Expenditures above a set amount (to be determined by the Core Committee) require approval from at least two core members, including the Treasurer.
+   * The Treasurer shall ensure financial transparency by presenting a monthly financial summary to all committee members. This report shall include the current available balance, income, expenditures and any pending financial commitments.
+   * The Treasurer must share this report through an accessible medium (e.g., meeting presentation or digital document) and address any queries from committee members to maintain accountability and trust.
+Article VII: Code of Conduct and Disciplinary Actions
+Section 01: Respect and Inclusivity
+All members must treat each other with respect and contribute to a safe, inclusive and supportive environment. Any form of discrimination, harassment or abusive behavior will not be tolerated.
+Section 02: Professionalism
+Members are expected to maintain professionalism in all club-related activities, both online and offline and represent DIU CPC with integrity.
+Section 03: Ethical Standards
+Cheating, plagiarism, harassment or any form of misconduct in club activities, events or programming contests is strictly prohibited.
+Section 04: Commitment
+Core members must prioritize DIU CPC responsibilities and actively fulfill their assigned duties. Repeated negligence or inactivity may lead to disciplinary action.
+Section 05: Disciplinary Actions
+Any member found violating the Code of Conduct shall be subject to the following actions, depending on the severity of the offense:
+   * Warning: A formal notice issued for minor violations
+   * Suspension: Temporary removal from activities and responsibilities
+
+
+
+
+
+
+
+   * Removal: Permanent termination of membership or position
+All disciplinary decisions shall be reviewed and finalized by the core committee.
+Section 06: Authority of the President
+The President holds the authority to promote, demote or remove any member, including core committee members, based on performance, conduct, or organizational needs.
+However, any action involving the General Secretary must be reviewed and approved collectively by the Advising  committee.
+Section 07: Quorum
+Decisions in Core Committee meetings require at least 60% presence of Core Members to be valid.
+Section 08: Complaint and Grievance Handling
+Members are encouraged to report any issues, including harassment or misconduct, to the designated authority (e.g., Women’s Leader or core committee).
+All complaints must be handled with confidentiality, fairness and proper investigation before taking action.
+Section 09: Attendance and Participation
+All committee members are expected to attend scheduled meetings and events regularly.
+If a committee member is absent for two or more consecutive meetings or events without valid justification, the following actions may be taken:
+   * A formal warning/show-cause letter will be issued
+   * Continued absence may lead to suspension or removal from the position
+Final decisions will be made by the core committee based on the situation and member explanation.
+
+
+
+
+
+
+Section 10: Participation Restriction for Core Committee Members
+Core Committee members are not permitted to participate as general participants in any CPC-organized or CPC-represented events, competitions, or fests. Their role is strictly limited to leadership, coordination, supervision, and execution of club activities.
+However, Executive Members are allowed to participate as participants in events and competitions unless otherwise restricted by specific event rules or committee decisions.
+Fair-Use Exception
+Core Committee members may participate as contestants in external events, competitions, or fests where DIU CPC is not officially organizing, representing, or directly involved. Such participation must not conflict with their CPC responsibilities or create any conflict of interest
+Section 11: Membership Eligibility for Committee Appointment
+Only registered General Members of DIU CPC with a valid CPC Membership ID are eligible to apply for or be appointed to any committee position.
+Candidates must maintain active membership status and demonstrate satisfactory participation in CPC activities before being considered for any leadership or executive role.
+Article VIII: Amendments
+Section 1: Amendment Process
+   * Amendments to the constitution may be proposed by any core committee member.
+   * Proposed amendments require a two-thirds majority vote of the committee to pass.
+Article IX: Dissolution
+Section 1: Dissolution Clause
+   * At the end of each committee term, outgoing Core Committee members must ensure proper handover of responsibilities, documents, financial records and ongoing projects to the newly appointed committee.
+   * A transition period of 1-2 weeks may be arranged to ensure smooth continuity of operations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+………………………………………………….
+Prof. Dr. Md. Abdul Based
+Chairman (Acting),
+Department Of CSE
+Advisor, DIU Computer Programming Club
+Dhaka International University
+	………………………………………………….
+Md. Muksit Ul Islam
+Lecturer
+Department Of CSE
+Advisor, DIU Computer Programming Club
+Dhaka International University
+
+
+
+
+
+
+	………………………………………………….
+Abdullah All Mamun Siam
+Lecturer,
+Department Of CSE
+Advisor, DIU Computer Programming Club
+Dhaka International University
+
+
+	………………………………………………….
+Safwan Ishrak
+Lecturer, 
+Department Of CSE
+Advisor, DIU Computer Programming Club
+Dhaka International University
+
+
+	
+
+
+
+
+
+
+This constitution serves as a guiding document for the operation of DIU CPC and may be reviewed annually to ensure alignment with club objectives and university policies.
+________________
+
+
+
+
+Declaration of Acceptance and Commitment
+We, the undersigned members of the Dhaka International University Computer Programming Club (DIU CPC), hereby acknowledge that we have read, understood, and fully agree to abide by the Constitution of DIU CPC.
+We solemnly affirm that we will perform our duties with honesty, integrity, and dedication, and will uphold the mission, vision, and values of the club. We also agree to comply with all rules, responsibilities, and disciplinary guidelines outlined in the constitution.
+We understand that any violation of the constitution or misconduct may result in disciplinary action as determined by the Core Committee and/or Faculty Advisors.
+By signing below, we commit ourselves to serve the club responsibly and contribute positively to its growth and reputation.
+Signatures of Core Committee Members
+Name
+	Position
+	Signature
+	Date
+	__________________________
+	President
+	__________
+	______
+	__________________________
+	Vice-President
+	__________
+	______
+	__________________________
+	General Secretary
+	__________
+	______
+	__________________________
+	Assistant General Secretary
+	__________
+	______
+	__________________________
+	Treasurer
+	__________
+	______
+
+
+
+
+	__________________________
+	Women’s Leader
+	__________
+	______
+	__________________________
+	Assistant Women’s Leader
+	__________
+	______
+	__________________________
+	Program Manager
+	__________
+	______
+	__________________________
+	Event Coordinator
+	__________
+	______
+	__________________________
+	Competition Lead
+	__________
+	______
+	__________________________
+	PRO
+	__________
+	______
+	__________________________
+	Social Media Manager
+	__________
+	______
+	__________________________
+	Publication Engineer
+	__________
+	______
+	__________________________
+	Evening Coordination Engineer
+	__________
+	______
+	__________________________
+	Executive Member
+	__________
+	______
+	__________________________
+	Executive Member
+	__________
+	______
+
+
+
+
+
+	__________________________
+	Executive Member
+	__________
+	______
+	__________________________
+	Executive Member
+	__________
+	______
+	__________________________
+	Executive Member
+	__________
+	______
+	
+
+
+
+
+
+
+
+Final Declaration
+We collectively agree that this constitution shall serve as the governing document of DIU CPC and shall remain valid until amended according to Article VIII (Amendments).

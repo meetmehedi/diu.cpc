@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIU CPC | General Member Registration</title>
+    <meta name="description" content="Join DIU Computer Programming Club. Register as a general member and become part of our vibrant coding community.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Registration Page Specific Styles */
+        .reg-hero {
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 140px 8% 40px;
+        }
+
+        .reg-hero .cyber-tag {
+            margin-bottom: 1.5rem;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { text-shadow: 0 0 10px rgba(0, 242, 255, 0.3); }
+            50% { text-shadow: 0 0 25px rgba(0, 242, 255, 0.6); }
+        }
+
+        .reg-hero h1 {
+            font-family: var(--font-cyber);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .reg-hero .hero-para {
+            max-width: 620px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        /* Info Cards Grid */
+        .info-section {
+            padding: 0 8% 60px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .info-card {
+            background: var(--surface);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 2rem;
+            text-align: center;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .info-card:hover {
+            background: var(--surface-h);
+            border-color: rgba(0, 242, 255, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 242, 255, 0.1);
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: var(--cyan);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .info-card h3 {
+            font-family: var(--font-cyber);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        /* Fee Notice */
+        .fee-notice {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            border-radius: var(--r);
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .fee-notice i {
+            font-size: 1.5rem;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .fee-notice p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .fee-notice strong {
+            color: var(--gold);
+        }
+
+        /* Form Container */
+        .form-section {
+            padding: 0 8% 100px;
+        }
+
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--surface);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan), var(--purple), var(--cyan));
+            background-size: 200% 100%;
+            animation: gradient-slide 3s linear infinite;
+        }
+
+        @keyframes gradient-slide {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        .form-header {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .form-header-left .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .form-header-left span {
+            font-family: var(--font-cyber);
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+
+        .form-cta-body {
+            padding: 3.5rem 2.5rem 3rem;
+            text-align: center;
+        }
+
+        .form-icon-wrap {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 242, 255, 0.08);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            animation: pulse-glow-ring 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow-ring {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 242, 255, 0); }
+            50% { box-shadow: 0 0 30px 5px rgba(0, 242, 255, 0.15); }
+        }
+
+        .form-icon-wrap i {
+            font-size: 2rem;
+            color: var(--cyan);
+        }
+
+        .form-cta-body h2 {
+            font-family: var(--font-cyber);
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .form-description {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            max-width: 520px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .form-description strong {
+            color: var(--gold);
+        }
+
+        .form-steps {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0.9rem 1.4rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .step-item:hover {
+            border-color: rgba(0, 242, 255, 0.3);
+            background: var(--surface-h);
+        }
+
+        .step-num {
+            font-family: var(--font-cyber);
+            font-size: 0.9rem;
+            color: var(--cyan);
+            font-weight: 700;
+            min-width: 28px;
+        }
+
+        .step-text {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            text-align: left;
+        }
+
+        .form-cta-btn {
+            font-size: 0.8rem !important;
+            padding: 1.1rem 3rem !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .form-cta-btn:hover {
+            transform: translateY(-3px) scale(1.05) !important;
+            box-shadow: 0 0 50px rgba(0, 242, 255, 0.5) !important;
+        }
+
+        .form-hint {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            font-family: var(--font-cyber);
+            letter-spacing: 1.5px;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 768px) {
+            .reg-hero {
+                padding: 120px 5% 30px;
+            }
+
+            .info-section,
+            .form-section {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .form-header {
+                padding: 1.5rem;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .fee-notice {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .form-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form-cta-body {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Futuristic Background -->
+    <div class="background-container"></div>
+    <div class="cyber-grid"></div>
+    <div class="scanline"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="logo.png" alt="CPC Logo" class="nav-logo">
+            <span class="brand-text">DIU CPC</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="legacy.html">Legacy</a></li>
+            <li><a href="viva.html" style="color:var(--gold);text-shadow:0 0 10px rgba(245,158,11,0.5);">EC Viva</a></li>
+            <li><a href="registration.html" style="color:var(--cyan);text-shadow:0 0 10px rgba(0,242,255,0.5);">Join CPC</a></li>
+            <li><a href="index.html#verify">Portal</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="mama.html" class="nav-btn admin-link">Admin</a>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="reg-hero">
+        <div class="cyber-tag"><i class="fa-solid fa-user-plus"></i> &nbsp; MEMBERSHIP PORTAL // ACTIVE</div>
+        <h1 class="glitch-text">JOIN <span class="gradient-text">DIU CPC</span></h1>
+        <p class="hero-para">
+            Are you passionate about programming and looking to enhance your coding skills?
+            DIU CPC is now open for new members — be part of our vibrant community of 760+ coders.
+        </p>
+    </section>
+
+    <!-- Info Cards -->
+    <section class="info-section">
+        <div class="info-grid">
+            <div class="info-card reveal">
+                <i class="fa-solid fa-code"></i>
+                <h3>CODING CONTESTS</h3>
+                <p>Participate in national & international programming competitions.</p>
+            </div>
+            <div class="info-card reveal">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <h3>WORKSHOPS</h3>
+                <p>Hands-on sessions on algorithms, data structures & modern tech stacks.</p>
+            </div>
+            <div class="info-card reveal">
+                <i class="fa-solid fa-users-gear"></i>
+                <h3>MENTORSHIP</h3>
+                <p>Guidance from experienced programmers and industry professionals.</p>
+            </div>
+            <div class="info-card reveal">
+                <i class="fa-solid fa-rocket"></i>
+                <h3>PROJECTS</h3>
+                <p>Collaborate on real-world projects and build your developer portfolio.</p>
+            </div>
+        </div>
+
+        <!-- Fee Notice -->
+        <div class="fee-notice reveal">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>
+                <strong>Registration Fee: ৳200</strong> — Please ensure the payment amount is available
+                before filling out the form. Payment details will be provided within the form.
+            </p>
+        </div>
+    </section>
+
+    <!-- Registration CTA -->
+    <section class="form-section">
+        <div class="form-container reveal">
+            <div class="form-header">
+                <div class="form-header-left">
+                    <div class="status-dot"></div>
+                    <span>REGISTRATION_FORM // LIVE</span>
+                </div>
+            </div>
+
+            <div class="form-cta-body">
+                <div class="form-icon-wrap">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                </div>
+                <h2>General Member Registration</h2>
+                <p class="form-description">Fill out the official registration form on Google Forms. You'll need to provide your personal details, batch info, department, and payment of <strong>৳200</strong>.</p>
+                
+                <div class="form-steps">
+                    <div class="step-item">
+                        <div class="step-num">01</div>
+                        <div class="step-text">Click the button below to open the form</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">02</div>
+                        <div class="step-text">Fill in your Name, Batch, Registration, Department & Roll</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-num">03</div>
+                        <div class="step-text">Complete your ৳200 payment & submit the form</div>
+                    </div>
+                </div>
+
+                <a href="https://forms.gle/eiYZLbXiK93fKcEh9" target="_blank" rel="noopener" class="cyber-btn primary form-cta-btn" id="openFormBtn">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    OPEN REGISTRATION FORM
+                </a>
+                <p class="form-hint">You will be redirected to Google Forms in a new tab</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wrap">
+            <div class="foot-col">
+                <h3 class="brand-text">DIU CPC</h3>
+                <p>OPERATIONAL SINCE 1995 // PROTOCOL: EXCELLENCE</p>
+            </div>
+            <div class="foot-col">
+                <div class="social-stream">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">© 2026 DIU CPC // DEVELOPED BY LABIB & Antigravity</div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navbar scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 30) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+            });
+
+            // Mobile menu
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            menuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('open');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('open');
+                }
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('open');
+                });
+            });
+
+            // Particles
+            const particleContainer = document.getElementById('particles');
+            if (particleContainer) {
+                const createParticle = () => {
+                    const dot = document.createElement('div');
+                    dot.className = 'node-particle';
+                    const size = Math.random() * 3 + 1;
+                    dot.style.width = `${size}px`;
+                    dot.style.height = `${size}px`;
+                    dot.style.left = `${Math.random() * 100}%`;
+                    dot.style.top = `${Math.random() * 100}%`;
+                    dot.style.opacity = Math.random() * 0.5 + 0.1;
+                    const duration = Math.random() * 20 + 10;
+                    dot.style.animation = `floatParticle ${duration}s infinite linear`;
+                    particleContainer.appendChild(dot);
+                    setTimeout(() => dot.remove(), duration * 1000);
+                };
+                for (let i = 0; i < 25; i++) createParticle();
+                setInterval(createParticle, 2500);
+            }
+
+            // Scroll reveal
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('reveal-active');
+                });
+            }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

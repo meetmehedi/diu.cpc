@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIU CPC | Member Dashboard</title>
+    <meta name="description" content="Log in to view your DIU CPC progress logs and stats.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dashboard-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 5% 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .dash-card {
+            background: rgba(10, 25, 47, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 800px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-view { max-width: 450px; margin: 0 auto; text-align: center; }
+        .auth-icon { font-size: 3rem; color: #38BDF8; margin-bottom: 1.5rem; text-shadow: 0 0 20px rgba(56, 189, 248, 0.5); }
+        .auth-title { font-family: var(--font-cyber); font-size: 1.8rem; margin-bottom: 0.5rem; letter-spacing: 2px; }
+        .auth-desc { color: #8892b0; font-size: 0.9rem; margin-bottom: 2rem; }
+
+        .auth-form { display: flex; flex-direction: column; gap: 1.2rem; }
+        .auth-input {
+            width: 100%; padding: 1.2rem; border-radius: 12px;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; font-family: var(--font-main); outline: none; transition: 0.3s;
+        }
+        .auth-input:focus { border-color: #38BDF8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+        .auth-btn {
+            width: 100%; padding: 1.2rem; background: #38BDF8; color: #000;
+            border: none; border-radius: 12px; font-weight: 700; font-size: 1rem;
+            cursor: pointer; transition: 0.3s;
+        }
+        .auth-btn:hover { background: #60cdff; transform: translateY(-2px); box-shadow: 0 5px 20px rgba(56, 189, 248, 0.4); }
+
+        .dash-user-header { border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1.5rem; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; }
+        .dash-user-left h2 { font-family: var(--font-cyber); font-size: 1.5rem; color: #fff; letter-spacing: 1px; }
+        .dash-user-left p { color: #38BDF8; font-size: 0.85rem; font-family: var(--font-cyber); letter-spacing: 2px; margin-top: 5px; }
+
+        .logout-btn { background: transparent; border: 1px solid rgba(255,90,90,0.5); color: #ff5a5a; padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; cursor: pointer; transition: 0.3s; }
+        .logout-btn:hover { background: rgba(255,90,90,0.1); border-color: #ff5a5a; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+        .stat-card { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 16px; text-align: center; }
+        .stat-card .icon { font-size: 2rem; color: #38BDF8; margin-bottom: 1rem; }
+        .stat-card .val { font-size: 2.5rem; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 0.5rem; }
+        .stat-card .lbl { font-size: 0.75rem; color: #8892b0; text-transform: uppercase; letter-spacing: 1px; }
+
+        .info-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+        @media(min-width: 600px) { .info-grid { grid-template-columns: 1fr 1fr; } }
+        .info-row { display: flex; justify-content: space-between; padding: 1rem; background: rgba(255,255,255,0.02); border-radius: 8px; }
+        .info-row span { color: #8892b0; font-size: 0.85rem; }
+        .info-row strong { color: #e6f1ff; font-weight: 500; text-align: right; }
+        
+        .change-pass-wrap { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .change-pass-form { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+        .change-pass-input { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem 1rem; border-radius: 8px; color: #fff; outline: none; width: 100%; max-width: 300px; font-family: var(--font-main); transition: 0.3s; }
+        .change-pass-input:focus { border-color: #38BDF8; box-shadow: 0 0 10px rgba(56, 189, 248, 0.2); }
+        .change-pass-btn { background: transparent; border: 1px solid #38BDF8; color: #38BDF8; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        .change-pass-btn:hover { background: rgba(56,189,248,0.1); box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+    <div class="background-container"></div>
+    <div class="cyber-grid"></div>
+
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="logo.png" alt="CPC Logo" class="nav-logo">
+            <span class="brand-text">DIU CPC</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="legacy.html">Legacy</a></li>
+            <li><a href="index.html#verify">ID Checker</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="registration.html" class="nav-btn" style="color:#00f2ff;border-color:rgba(0,242,255,0.5);">Join CPC</a>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        
+        <!-- Auth View -->
+        <div class="dash-card auth-view" id="authView">
+            <i class="fa-solid fa-fingerprint auth-icon"></i>
+            <h1 class="auth-title">MEMBER_LOGIN</h1>
+            <p class="auth-desc">Authenticate to access your progress logs.</p>
+            
+            <div class="alert-box" id="loginError"></div>
+
+            <form class="auth-form" id="loginForm">
+                <input type="email" id="loginEmail" class="auth-input" placeholder="Registered Email" required>
+                <input type="password" id="loginId" class="auth-input" placeholder="Password or Initial Member ID" required>
+                <button type="submit" class="auth-btn" id="loginBtn">AUTHENTICATE</button>
+            </form>
+        </div>
+
+        <!-- Dashboard View -->
+        <div class="dash-card hidden" id="dashView">
+            <div class="dash-user-header">
+                <div class="dash-user-left">
+                    <h2 id="userName">User Name</h2>
+                    <p id="userDept">Department // Batch</p>
+                </div>
+                <button class="logout-btn" id="logoutBtn"><i class="fa-solid fa-power-off"></i> LOGOUT</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="icon"><i class="fa-solid fa-code"></i></div>
+                    <div class="val" id="statSolved">0</div>
+                    <div class="lbl">Problems Solved</div>
+                </div>
+                <div class="stat-card" style="background:rgba(56,189,248,0.1); border-color:rgba(56,189,248,0.2);">
+                    <div class="icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="val" id="statRating" style="color:#38BDF8;">0</div>
+                    <div class="lbl" style="color:rgba(56,189,248,0.8);">CP Rating</div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon"><i class="fa-solid fa-globe"></i></div>
+                    <div class="val" id="statRank">N/A</div>
+                    <div class="lbl">Global Rank</div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom:1rem; font-family:var(--font-cyber); font-size:1rem; letter-spacing:1px; color:#8892b0;">MEMBER_DETAILS</h3>
+            <div class="info-grid">
+                <div class="info-row"><span>Member ID</span><strong id="infoId">---</strong></div>
+                <div class="info-row"><span>Email Auth</span><strong id="infoEmail">---</strong></div>
+                <div class="info-row"><span>Registration</span><strong id="infoReg">---</strong></div>
+                <div class="info-row"><span>Roll No.</span><strong id="infoRoll">---</strong></div>
+                <div class="info-row"><span>Codeforces</span><strong id="infoCF">---</strong></div>
+                <div class="info-row"><span>Course Status</span><strong id="infoCourse">---</strong></div>
+            </div>
+
+            <!-- Change Password Section -->
+            <div class="change-pass-wrap">
+                <h3 style="font-family:var(--font-cyber); font-size:1rem; color:#8892b0; margin-bottom:1rem;">SECURITY // SET PASSWORD</h3>
+                <p style="color:rgba(255,255,255,0.5); font-size:0.8rem; margin-bottom:1rem;">If you are logging in with your Member ID, update your password to secure your account.</p>
+                <form class="change-pass-form" id="changePassForm">
+                    <input type="password" id="newPassword" class="change-pass-input" placeholder="New Password (min 6 chars)" required minlength="6">
+                    <button type="submit" class="change-pass-btn" id="changePassBtn">UPDATE SEQUENCE</button>
+                </form>
+                <div id="passAlertBox" class="alert-box" style="margin-top:1rem;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const authView = document.getElementById('authView');
+            const dashView = document.getElementById('dashView');
+            const loginForm = document.getElementById('loginForm');
+            const loginError = document.getElementById('loginError');
+            const loginBtn = document.getElementById('loginBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+
+            // Populate dashboard
+            const populateDash = (data) => {
+                document.getElementById('userName').textContent = data.Member_Name;
+                document.getElementById('userDept').textContent = `${data.Department} // BATCH ${data.Batch}`;
+                
+                document.getElementById('statSolved').textContent = data.Problems_Solved || '0';
+                document.getElementById('statRating').textContent = data.CP_Rating || '0';
+                document.getElementById('statRank').textContent = data.Global_Rank || 'N/A';
+                
+                document.getElementById('infoId').textContent = data.Member_ID;
+                document.getElementById('infoEmail').textContent = data.email;
+                document.getElementById('infoReg').textContent = data.Registration || 'N/A';
+                document.getElementById('infoRoll').textContent = data.Roll_No || 'N/A';
+                document.getElementById('infoCF').textContent = data.CF_Handle || 'N/A';
+                document.getElementById('infoCourse').textContent = data.Course_Status || 'None';
+
+                authView.classList.add('hidden');
+                dashView.classList.remove('hidden');
+            };
+
+            const verifySession = async () => {
+                try {
+                    const res = await fetch('/api/member/me');
+                    const json = await res.json();
+                    if(json.success && json.data) {
+                        populateDash(json.data);
+                    }
+                } catch(e) { console.log('No session'); }
+            };
+
+            verifySession();
+
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginId').value;
+
+                loginBtn.textContent = 'VERIFYING...';
+                loginBtn.disabled = true;
+                loginError.style.display = 'none';
+
+                try {
+                    const res = await fetch('/api/member/login', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({ email, password })
+                    });
+                    const json = await res.json();
+
+                    if(json.success) {
+                        verifySession();
+                    } else {
+                        loginError.textContent = json.error || 'Login failed';
+                        loginError.style.display = 'block';
+                    }
+                } catch(err) {
+                    loginError.textContent = 'Connection error';
+                    loginError.style.display = 'block';
+                } finally {
+                    loginBtn.textContent = 'AUTHENTICATE';
+                    loginBtn.disabled = false;
+                }
+            });
+
+            logoutBtn.addEventListener('click', async () => {
+                await fetch('/api/member/logout', { method: 'POST' });
+                window.location.reload();
+            });
+
+            // Handle Password Change
+            const changePassForm = document.getElementById('changePassForm');
+            const changePassBtn = document.getElementById('changePassBtn');
+            const newPasswordInput = document.getElementById('newPassword');
+            const passAlertBox = document.getElementById('passAlertBox');
+
+            changePassForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const newPassword = newPasswordInput.value;
+                changePassBtn.textContent = 'UPDATING...';
+                changePassBtn.disabled = true;
+                passAlertBox.style.display = 'none';
+
+                try {
+                    const res = await fetch('/api/member/password/update', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({ newPassword })
+                    });
+                    const json = await res.json();
+                    
+                    passAlertBox.style.display = 'block';
+                    if (json.success) {
+                        passAlertBox.textContent = 'Password successfully anchored to your identity.';
+                        passAlertBox.style.borderLeftColor = '#22c55e'; // Green
+                        passAlertBox.style.backgroundColor = 'rgba(34, 197, 94, 0.1)';
+                        newPasswordInput.value = '';
+                    } else {
+                        passAlertBox.textContent = json.error || 'Password update failed';
+                        passAlertBox.style.borderLeftColor = '#ff5a5a';
+                        passAlertBox.style.backgroundColor = 'rgba(255,90,90,0.1)';
+                    }
+                } catch(err) {
+                    passAlertBox.textContent = 'Connection error';
+                    passAlertBox.style.display = 'block';
+                } finally {
+                    changePassBtn.textContent = 'UPDATE SEQUENCE';
+                    changePassBtn.disabled = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

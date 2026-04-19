@@ -307,7 +307,12 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('editRollNo').value = member.Roll_No;
             document.getElementById('editDept').value = member.Department;
             document.getElementById('editMobile').value = member.Mobile_No;
-            document.getElementById('editJoined').value = member.Joined;
+            document.getElementById('editJoined').value = member.Joined || '';
+            document.getElementById('editSolved').value = member.Problems_Solved || '0';
+            document.getElementById('editRating').value = member.CP_Rating || '0';
+            document.getElementById('editRank').value = member.Global_Rank || 'N/A';
+            document.getElementById('editCFHandle').value = member.CF_Handle || '';
+            document.getElementById('editCourse').value = member.Course_Status || 'None';
         } else {
             isEditing = false;
             oldEmail = '';
@@ -334,6 +339,11 @@ document.addEventListener('DOMContentLoaded', () => {
             Department: document.getElementById('editDept').value,
             Mobile_No: document.getElementById('editMobile').value,
             Joined: document.getElementById('editJoined').value,
+            Problems_Solved: document.getElementById('editSolved').value,
+            CP_Rating: document.getElementById('editRating').value,
+            Global_Rank: document.getElementById('editRank').value,
+            CF_Handle: document.getElementById('editCFHandle').value,
+            Course_Status: document.getElementById('editCourse').value,
         };
 
         try {

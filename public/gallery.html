@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIU CPC | Visual Archive</title>
+    <meta name="description" content="Explore the history and visual archives of DIU CPC.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gallery-header { text-align: center; padding: 140px 5% 50px; position: relative; z-index: 1; }
+        .gallery-title { font-family: var(--font-cyber); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; color: #fff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
+        .gallery-subtitle { color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; }
+        
+        .drive-btn {
+            display: inline-flex; align-items: center; gap: 12px;
+            padding: 1.2rem 2.5rem; background: linear-gradient(135deg, rgba(56,189,248,0.2), rgba(168,85,247,0.2));
+            border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 50px;
+            color: #fff; font-family: var(--font-cyber); font-size: 1.1rem; letter-spacing: 2px;
+            text-decoration: none; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 3rem;
+        }
+        .drive-btn:hover {
+            border-color: #fff; transform: translateY(-3px); box-shadow: 0 15px 40px rgba(56,189,248,0.4);
+            background: linear-gradient(135deg, rgba(56,189,248,0.3), rgba(168,85,247,0.3));
+        }
+
+        .archive-grid {
+            max-width: 1300px; margin: 0 auto; padding: 0 5% 80px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem;
+            position: relative; z-index: 1;
+        }
+
+        .gal-card img { width: 100%; height: 250px; object-fit: cover; }
+    </style>
+</head>
+<body>
+    <div class="background-container"></div>
+    <div class="cyber-grid"></div>
+
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-brand">
+            <img src="logo.png" alt="CPC Logo" class="nav-logo">
+            <span class="brand-text">DIU CPC</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="legacy.html">Legacy</a></li>
+            <li><a href="cp.html">CP Section</a></li>
+            <li><a href="gallery.html" style="color:var(--cyan);">Gallery</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="dashboard.html" class="nav-btn" style="color:#a855f7;border-color:rgba(168,85,247,0.5);">Dashboard</a>
+        </div>
+    </nav>
+
+    <div class="gallery-header">
+        <h1 class="gallery-title">VISUAL <span style="color:var(--cyan)">ARCHIVE</span></h1>
+        <p class="gallery-subtitle">Browse through the immortalized moments of DIU CPC. Access the dedicated 2026-27 repository below.</p>
+        
+        <a href="https://drive.google.com/drive/folders/1TyEzYmdz9Qr5yQE3U7wyMVEX16f2XYA0?usp=share_link" target="_blank" rel="noopener noreferrer" class="drive-btn">
+            <i class="fa-brands fa-google-drive"></i> 2026-27 EVENTS REPOSITORY
+        </a>
+    </div>
+
+    <div class="archive-grid">
+        <div class="gal-card">
+            <img src="Galary/Diu%20cpc%20fall%20fest%202024%20/IMG_20241204_151351_Tempest-LMC8.4-F3-v5.2.jpg" alt="Fall Fest 2024" loading="lazy">
+            <div class="gal-info">TIMESTAMP: FALL FEST 2024</div>
+        </div>
+        <div class="gal-card">
+            <img src="Galary/Nasa%20Space%20Apps%20Challenge%20Achivements%20Global%20Nominee%20and%20honarable%20mention%202025/571252697_1241239524690861_7680242184362671601_n.jpg" alt="NASA 2025" loading="lazy">
+            <div class="gal-info">CATEGORY: NASA SPACE APPS 2025</div>
+        </div>
+        <div class="gal-card">
+            <img src="Galary/ICPC/399183549_1253816262097040_3411358343477002701_n.jpg" alt="ICPC" loading="lazy">
+            <div class="gal-info">LOG: ICPC REGIONALS</div>
+        </div>
+        <div class="gal-card">
+            <img src="Galary/extra/DSC_0128.JPG" alt="Networking Event" loading="lazy">
+            <div class="gal-info">EVENT: NETWORKING</div>
+        </div>
+        <div class="gal-card">
+            <img src="Galary/extra/DSC_0054.JPG" alt="Event Highlights" loading="lazy">
+            <div class="gal-info">EVENT: HIGHLIGHTS</div>
+        </div>
+        <div class="gal-card">
+            <img src="Galary/extra/DSC_0084.JPG" alt="Event Highlights" loading="lazy">
+            <div class="gal-info">EVENT: OPERATIONS</div>
+        </div>
+    </div>
+</body>
+</html>
